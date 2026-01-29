@@ -114,6 +114,265 @@
     .system-badge.byte { background: rgba(59, 130, 246, 0.25); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4); }
     .system-badge.clear { background: rgba(20, 184, 166, 0.25); color: #2dd4bf; border: 1px solid rgba(20, 184, 166, 0.4); }
 
+    /* ============================================
+       VISIO-STYLE FLOWCHART LAYOUT (NEW)
+       ============================================ */
+
+    .visio-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    /* Top Section: Use Case & Opportunity side by side */
+    .visio-top-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      flex-shrink: 0;
+    }
+
+    .visio-use-case, .visio-opportunity {
+      padding: 16px 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .visio-use-case {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.03));
+      border-left: 4px solid var(--accent-blue);
+    }
+
+    .visio-opportunity {
+      background: linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(20, 184, 166, 0.03));
+      border-left: 4px solid var(--accent-teal);
+    }
+
+    .visio-use-case h3, .visio-opportunity h3 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .visio-use-case h3 { color: #60a5fa; }
+    .visio-opportunity h3 { color: #2dd4bf; }
+
+    .visio-use-case p, .visio-opportunity p {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Flowchart Container */
+    .visio-flowchart {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 20px;
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .visio-flowchart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+      flex-shrink: 0;
+    }
+
+    .visio-flowchart-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .visio-legend {
+      display: flex;
+      gap: 15px;
+    }
+
+    .visio-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: #94a3b8;
+    }
+
+    .visio-legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+    }
+
+    .visio-legend-dot.extract { background: var(--accent-blue); }
+    .visio-legend-dot.validate { background: var(--accent-teal); }
+    .visio-legend-dot.ai { background: var(--accent-purple); }
+    .visio-legend-dot.api { background: var(--accent-amber); }
+    .visio-legend-dot.output { background: var(--accent-green); }
+
+    /* Flowchart Grid */
+    .visio-flow-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      align-content: flex-start;
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px 5px;
+    }
+
+    /* Individual Flow Box */
+    .visio-box {
+      position: relative;
+      width: calc(33.333% - 14px);
+      min-width: 200px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 2px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .visio-box.extract { border-color: var(--accent-blue); }
+    .visio-box.validate { border-color: var(--accent-teal); }
+    .visio-box.ai { border-color: var(--accent-purple); }
+    .visio-box.api { border-color: var(--accent-amber); }
+    .visio-box.output { border-color: var(--accent-green); }
+
+    .visio-box-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .visio-box-number {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .visio-box-number.extract { background: var(--accent-blue); }
+    .visio-box-number.validate { background: var(--accent-teal); }
+    .visio-box-number.ai { background: var(--accent-purple); }
+    .visio-box-number.api { background: var(--accent-amber); }
+    .visio-box-number.output { background: var(--accent-green); }
+
+    .visio-box-type {
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 2px 8px;
+      border-radius: 3px;
+    }
+
+    .visio-box-type.extract { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+    .visio-box-type.validate { background: rgba(20, 184, 166, 0.2); color: #2dd4bf; }
+    .visio-box-type.ai { background: rgba(139, 92, 246, 0.2); color: #a78bfa; }
+    .visio-box-type.api { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+    .visio-box-type.output { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
+
+    .visio-box h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #fff;
+      margin: 0;
+      line-height: 1.3;
+    }
+
+    .visio-box p {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    /* Arrow connector (shown after each box except last in row) */
+    .visio-box::after {
+      content: '→';
+      position: absolute;
+      right: -18px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      color: #475569;
+      font-weight: bold;
+    }
+
+    .visio-box:nth-child(3n)::after,
+    .visio-box:last-child::after {
+      display: none;
+    }
+
+    /* Down arrow for row transitions */
+    .visio-row-arrow {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 5px 0;
+      color: #475569;
+      font-size: 1.2rem;
+    }
+
+    /* Metrics Row at bottom */
+    .visio-metrics-row {
+      display: flex;
+      gap: 15px;
+      flex-shrink: 0;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .visio-metric {
+      flex: 1;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+
+    .visio-metric .value {
+      font-size: 1.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-teal));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .visio-metric .label {
+      font-size: 0.7rem;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 4px;
+    }
+
     /* Main Content Area */
     .main-content {
       display: grid;
@@ -618,7 +877,7 @@
     .overview-column {
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 8px;
       overflow-y: auto;
       padding-right: 10px;
     }
@@ -626,65 +885,64 @@
     .overview-column-header {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 12px 16px;
+      gap: 10px;
+      padding: 10px 14px;
       background: var(--bg-card);
-      border-radius: 12px;
+      border-radius: 10px;
       border: 1px solid var(--border-subtle);
       position: sticky;
       top: 0;
       z-index: 10;
     }
 
-    .overview-column-header.byte { border-left: 4px solid var(--accent-blue); }
-    .overview-column-header.clear { border-left: 4px solid var(--accent-teal); }
+    .overview-column-header.byte { border-left: 3px solid var(--accent-blue); }
+    .overview-column-header.clear { border-left: 3px solid var(--accent-teal); }
 
     .overview-column-header .header-icon {
-      font-size: 1.8rem;
+      font-size: 1.4rem;
     }
 
     .overview-column-header .header-info h3 {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: #fff;
-      margin-bottom: 2px;
+      margin-bottom: 0;
     }
 
     .overview-column-header .header-info span {
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       color: #94a3b8;
     }
 
     .agent-card-friendly {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 16px 18px;
+      border-radius: 10px;
+      padding: 12px 16px;
       cursor: pointer;
-      transition: all 0.25s ease;
+      transition: all 0.2s ease;
       display: flex;
-      align-items: flex-start;
-      gap: 14px;
+      align-items: center;
+      gap: 12px;
     }
 
     .agent-card-friendly:hover {
-      transform: translateY(-2px);
       border-color: var(--accent-blue);
-      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+      background: rgba(59, 130, 246, 0.08);
     }
 
     .agent-card-friendly.clear:hover {
       border-color: var(--accent-teal);
-      box-shadow: 0 8px 25px rgba(20, 184, 166, 0.15);
+      background: rgba(20, 184, 166, 0.08);
     }
 
     .agent-card-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4rem;
+      font-size: 1rem;
       flex-shrink: 0;
     }
 
@@ -693,51 +951,49 @@
 
     .agent-card-content {
       flex: 1;
+      min-width: 0;
     }
 
     .agent-card-content h4 {
-      font-size: 1rem;
+      font-size: 0.9rem;
       font-weight: 600;
       color: #fff;
-      margin-bottom: 4px;
+      margin: 0;
     }
 
     .agent-card-content p {
-      font-size: 0.85rem;
-      color: #94a3b8;
-      line-height: 1.4;
-      margin-bottom: 8px;
+      display: none;
     }
 
     .agent-card-benefit {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
       padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 0.75rem;
+      border-radius: 6px;
+      font-size: 0.7rem;
       font-weight: 600;
+      flex-shrink: 0;
     }
 
     .agent-card-benefit.byte {
-      background: rgba(59, 130, 246, 0.15);
+      background: rgba(59, 130, 246, 0.12);
       color: #60a5fa;
     }
 
     .agent-card-benefit.clear {
-      background: rgba(20, 184, 166, 0.15);
+      background: rgba(20, 184, 166, 0.12);
       color: #2dd4bf;
     }
 
     .agent-card-arrow {
       color: #475569;
-      font-size: 1.2rem;
+      font-size: 1rem;
       transition: transform 0.2s;
-      align-self: center;
+      flex-shrink: 0;
     }
 
     .agent-card-friendly:hover .agent-card-arrow {
-      transform: translateX(4px);
+      transform: translateX(3px);
       color: var(--accent-blue);
     }
 
@@ -1083,8 +1339,6 @@
         <span class="breadcrumb-item active byte-section">Byte Agents (1/10)</span>
         <span class="breadcrumb-sep">›</span>
         <span class="breadcrumb-item clear-section" data-goto="12">Clear Agents</span>
-        <span class="breadcrumb-sep">›</span>
-        <span class="breadcrumb-item" data-goto="17">Summary</span>
       </div>
       <div class="slide-content">
         <div class="slide-header">
@@ -1101,118 +1355,98 @@
           <span class="system-badge byte">Byte LOS</span>
         </div>
 
-        <div class="main-content">
-          <div class="workflow-visual">
-            <div class="workflow-title">Agent Workflow</div>
-            <div class="step-legend">
-              <div class="legend-item"><div class="legend-dot extract"></div>Data Extract</div>
-              <div class="legend-item"><div class="legend-dot ai"></div>AI Processing</div>
-              <div class="legend-item"><div class="legend-dot validate"></div>Validation</div>
-              <div class="legend-item"><div class="legend-dot output"></div>Action</div>
-            </div>
-            <div class="workflow-diagram">
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number ai">1</div>
-                  <div class="step-line ai"></div>
-                </div>
-                <div class="step-content ai">
-                  <span class="step-type-tag ai">AI Processing</span>
-                  <h4>OCR & Document Classification</h4>
-                  <p>Run OCR to extract all text. Classify doc type: paystub, W2, bank statement, VOE, tax return, ID, etc. Detect document template/format.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number ai">2</div>
-                  <div class="step-line ai"></div>
-                </div>
-                <div class="step-content ai">
-                  <span class="step-type-tag ai">AI Processing</span>
-                  <h4>Type-Specific Field Extraction</h4>
-                  <p>Based on doc type, extract key fields: Paystub (employer, pay date, gross, YTD), W2 (wages, employer EIN), Bank stmt (account #, balance, deposits).</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number extract">3</div>
-                  <div class="step-line extract"></div>
-                </div>
-                <div class="step-content extract">
-                  <span class="step-type-tag extract">Data Extract</span>
-                  <h4>Pull Corresponding Byte Data</h4>
-                  <p>Query Byte for borrower's stated values: employer name, income amounts, bank accounts, employment dates. Build comparison dataset.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number validate">4</div>
-                  <div class="step-line validate"></div>
-                </div>
-                <div class="step-content validate">
-                  <span class="step-type-tag validate">Validation</span>
-                  <h4>Cross-Reference & Match</h4>
-                  <p>Compare extracted values to Byte data. Flag mismatches: employer name variance, income discrepancy >5%, account number mismatch, date conflicts.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number ai">5</div>
-                  <div class="step-line ai"></div>
-                </div>
-                <div class="step-content ai">
-                  <span class="step-type-tag ai">AI Processing</span>
-                  <h4>Fraud & Anomaly Detection</h4>
-                  <p>Check for red flags: font inconsistencies, metadata tampering, rounded numbers, sequential deposits, altered dates, mismatched formatting, copied signatures.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number validate">6</div>
-                  <div class="step-line validate"></div>
-                </div>
-                <div class="step-content validate">
-                  <span class="step-type-tag validate">Validation</span>
-                  <h4>Risk Scoring</h4>
-                  <p>Calculate overall risk score (0-100). Weight factors: data mismatches, fraud indicators, document quality, source reliability. Flag high-risk (>70) for manual review.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number output">7</div>
-                </div>
-                <div class="step-content output">
-                  <span class="step-type-tag output">Action</span>
-                  <h4>Generate Verification Report</h4>
-                  <p>Create detailed report: extracted fields, Byte comparison, discrepancies found, fraud indicators, risk score, recommended actions. Route to appropriate queue.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="details-panel">
-            <div class="use-case-box">
+        <div class="visio-layout">
+          <div class="visio-top-row">
+            <div class="visio-use-case">
               <h3>Use Case</h3>
               <p>Documents are submitted but rarely verified against LOS data until issues arise. This agent automatically extracts key fields from each document type, validates them against Byte data, and uses AI to detect potential fraud indicators like altered documents or suspicious patterns.</p>
             </div>
-
-            <div class="opportunity-box">
+            <div class="visio-opportunity">
               <h3>Opportunity</h3>
               <p>Catches data discrepancies before underwriting, reduces fraud losses, ensures document authenticity, and provides audit trail. Critical for QC, compliance, and risk mitigation. Estimated 15% of docs have data mismatches that go undetected.</p>
             </div>
+          </div>
 
-            <div class="metrics-grid">
-              <div class="metric-card">
-                <div class="metric-value">12min</div>
-                <div class="metric-label">Per Loan Saved</div>
+          <div class="visio-flowchart">
+            <div class="visio-flowchart-header">
+              <span class="visio-flowchart-title">Agent Workflow</span>
+              <div class="visio-legend">
+                <div class="visio-legend-item"><div class="visio-legend-dot extract"></div>Data Extract</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot ai"></div>AI Processing</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot validate"></div>Validation</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot output"></div>Action</div>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">94%</div>
-                <div class="metric-label">Fraud Detection</div>
+            </div>
+            <div class="visio-flow-grid">
+              <div class="visio-box ai">
+                <div class="visio-box-header">
+                  <span class="visio-box-number ai">1</span>
+                  <span class="visio-box-type ai">AI Processing</span>
+                </div>
+                <h4>OCR & Document Classification</h4>
+                <p>Run OCR to extract all text. Classify doc type: paystub, W2, bank statement, VOE, tax return, ID, etc.</p>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">High</div>
-                <div class="metric-label">Complexity</div>
+              <div class="visio-box ai">
+                <div class="visio-box-header">
+                  <span class="visio-box-number ai">2</span>
+                  <span class="visio-box-type ai">AI Processing</span>
+                </div>
+                <h4>Type-Specific Field Extraction</h4>
+                <p>Extract key fields based on doc type: Paystub, W2, Bank stmt with relevant data points.</p>
+              </div>
+              <div class="visio-box extract">
+                <div class="visio-box-header">
+                  <span class="visio-box-number extract">3</span>
+                  <span class="visio-box-type extract">Data Extract</span>
+                </div>
+                <h4>Pull Corresponding Byte Data</h4>
+                <p>Query Byte for borrower's stated values: employer, income, bank accounts, employment dates.</p>
+              </div>
+              <div class="visio-box validate">
+                <div class="visio-box-header">
+                  <span class="visio-box-number validate">4</span>
+                  <span class="visio-box-type validate">Validation</span>
+                </div>
+                <h4>Cross-Reference & Match</h4>
+                <p>Compare extracted values to Byte data. Flag mismatches: name variance, income discrepancy >5%.</p>
+              </div>
+              <div class="visio-box ai">
+                <div class="visio-box-header">
+                  <span class="visio-box-number ai">5</span>
+                  <span class="visio-box-type ai">AI Processing</span>
+                </div>
+                <h4>Fraud & Anomaly Detection</h4>
+                <p>Check for red flags: font inconsistencies, metadata tampering, rounded numbers, altered dates.</p>
+              </div>
+              <div class="visio-box validate">
+                <div class="visio-box-header">
+                  <span class="visio-box-number validate">6</span>
+                  <span class="visio-box-type validate">Validation</span>
+                </div>
+                <h4>Risk Scoring</h4>
+                <p>Calculate risk score (0-100). Weight factors: mismatches, fraud indicators, document quality.</p>
+              </div>
+              <div class="visio-box output">
+                <div class="visio-box-header">
+                  <span class="visio-box-number output">7</span>
+                  <span class="visio-box-type output">Action</span>
+                </div>
+                <h4>Generate Verification Report</h4>
+                <p>Create detailed report with extracted fields, discrepancies, fraud indicators, and recommendations.</p>
+              </div>
+            </div>
+            <div class="visio-metrics-row">
+              <div class="visio-metric">
+                <div class="value">12min</div>
+                <div class="label">Per Loan Saved</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">94%</div>
+                <div class="label">Fraud Detection</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">High</div>
+                <div class="label">Complexity</div>
               </div>
             </div>
           </div>
@@ -1228,8 +1462,6 @@
         <span class="breadcrumb-item active byte-section">Byte (2/10)</span>
         <span class="breadcrumb-sep">›</span>
         <span class="breadcrumb-item clear-section" data-goto="12">Clear</span>
-        <span class="breadcrumb-sep">›</span>
-        <span class="breadcrumb-item" data-goto="17">Summary</span>
       </div>
       <div class="slide-content">
         <div class="slide-header">
@@ -1246,95 +1478,81 @@
           <span class="system-badge byte">Byte LOS</span>
         </div>
 
-        <div class="main-content">
-          <div class="workflow-visual">
-            <div class="workflow-title">Agent Workflow</div>
-            <div class="step-legend">
-              <div class="legend-item"><div class="legend-dot extract"></div>Data Extract</div>
-              <div class="legend-item"><div class="legend-dot validate"></div>Validation</div>
-              <div class="legend-item"><div class="legend-dot output"></div>Action</div>
-            </div>
-            <div class="workflow-diagram">
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number extract">1</div>
-                  <div class="step-line extract"></div>
-                </div>
-                <div class="step-content extract">
-                  <span class="step-type-tag extract">Data Extract</span>
-                  <h4>Locate UCD Response PDFs</h4>
-                  <p>Search Stored Documents for FNMA UCD and FHLMC UCD submission response files by document type code.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number extract">2</div>
-                  <div class="step-line extract"></div>
-                </div>
-                <div class="step-content extract">
-                  <span class="step-type-tag extract">Data Extract</span>
-                  <h4>Parse PDF Contents</h4>
-                  <p>Extract Casefile ID, Batch ID, Submission Date, Status (Successful/Satisfied), and any error messages from each PDF.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number validate">3</div>
-                  <div class="step-line validate"></div>
-                </div>
-                <div class="step-content validate">
-                  <span class="step-type-tag validate">Validation</span>
-                  <h4>Verify Successful Status</h4>
-                  <p>Confirm both FNMA shows "Successful" and FHLMC shows "Satisfied". Flag any warnings or errors for review.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number validate">4</div>
-                  <div class="step-line validate"></div>
-                </div>
-                <div class="step-content validate">
-                  <span class="step-type-tag validate">Validation</span>
-                  <h4>Cross-Reference Loan Data</h4>
-                  <p>Verify extracted Casefile ID matches loan number. Check submission dates are within acceptable window.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number output">5</div>
-                </div>
-                <div class="step-content output">
-                  <span class="step-type-tag output">Action</span>
-                  <h4>Populate Byte UCD Screen</h4>
-                  <p>Auto-fill all UCD Screen fields: FNMA Casefile ID, FHLMC Batch ID, submission dates, status flags. Mark screen complete.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="details-panel">
-            <div class="use-case-box">
+        <div class="visio-layout">
+          <div class="visio-top-row">
+            <div class="visio-use-case">
               <h3>Use Case</h3>
               <p>Credit Auditors must manually review UCD submission PDFs and enter multiple field values into Byte's UCD Screen. This agent automates the entire process by parsing documents, validating success status, and auto-populating all required fields.</p>
             </div>
-
-            <div class="opportunity-box">
+            <div class="visio-opportunity">
               <h3>Opportunity</h3>
               <p>Eliminates data entry errors in UCD fields, ensures compliance with agency requirements, and dramatically reduces time spent on each Correspondent Credit Audit. High ROI with low complexity.</p>
             </div>
+          </div>
 
-            <div class="metrics-grid">
-              <div class="metric-card">
-                <div class="metric-value">5min</div>
-                <div class="metric-label">Per Loan Saved</div>
+          <div class="visio-flowchart">
+            <div class="visio-flowchart-header">
+              <span class="visio-flowchart-title">Agent Workflow</span>
+              <div class="visio-legend">
+                <div class="visio-legend-item"><div class="visio-legend-dot extract"></div>Data Extract</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot validate"></div>Validation</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot output"></div>Action</div>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">99%</div>
-                <div class="metric-label">Accuracy</div>
+            </div>
+            <div class="visio-flow-grid">
+              <div class="visio-box extract">
+                <div class="visio-box-header">
+                  <span class="visio-box-number extract">1</span>
+                  <span class="visio-box-type extract">Data Extract</span>
+                </div>
+                <h4>Locate UCD Response PDFs</h4>
+                <p>Search Stored Docs for FNMA/FHLMC UCD response files by document type code.</p>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">Low</div>
-                <div class="metric-label">Complexity</div>
+              <div class="visio-box extract">
+                <div class="visio-box-header">
+                  <span class="visio-box-number extract">2</span>
+                  <span class="visio-box-type extract">Data Extract</span>
+                </div>
+                <h4>Parse PDF Contents</h4>
+                <p>Extract Casefile ID, Batch ID, dates, status, and any error messages from each PDF.</p>
+              </div>
+              <div class="visio-box validate">
+                <div class="visio-box-header">
+                  <span class="visio-box-number validate">3</span>
+                  <span class="visio-box-type validate">Validation</span>
+                </div>
+                <h4>Verify Successful Status</h4>
+                <p>Confirm FNMA shows "Successful" and FHLMC shows "Satisfied". Flag warnings.</p>
+              </div>
+              <div class="visio-box validate">
+                <div class="visio-box-header">
+                  <span class="visio-box-number validate">4</span>
+                  <span class="visio-box-type validate">Validation</span>
+                </div>
+                <h4>Cross-Reference Loan Data</h4>
+                <p>Verify Casefile ID matches loan number. Check dates within acceptable window.</p>
+              </div>
+              <div class="visio-box output">
+                <div class="visio-box-header">
+                  <span class="visio-box-number output">5</span>
+                  <span class="visio-box-type output">Action</span>
+                </div>
+                <h4>Populate Byte UCD Screen</h4>
+                <p>Auto-fill all UCD fields: Casefile ID, Batch ID, dates, status. Mark complete.</p>
+              </div>
+            </div>
+            <div class="visio-metrics-row">
+              <div class="visio-metric">
+                <div class="value">5min</div>
+                <div class="label">Per Loan Saved</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">99%</div>
+                <div class="label">Accuracy</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">Low</div>
+                <div class="label">Complexity</div>
               </div>
             </div>
           </div>
@@ -1350,8 +1568,6 @@
         <span class="breadcrumb-item active byte-section">Byte (3/10)</span>
         <span class="breadcrumb-sep">›</span>
         <span class="breadcrumb-item clear-section" data-goto="12">Clear</span>
-        <span class="breadcrumb-sep">›</span>
-        <span class="breadcrumb-item" data-goto="17">Summary</span>
       </div>
       <div class="slide-content">
         <div class="slide-header">
@@ -1368,95 +1584,81 @@
           <span class="system-badge byte">Byte LOS</span>
         </div>
 
-        <div class="main-content">
-          <div class="workflow-visual">
-            <div class="workflow-title">Agent Workflow</div>
-            <div class="step-legend">
-              <div class="legend-item"><div class="legend-dot extract"></div>Data Extract</div>
-              <div class="legend-item"><div class="legend-dot validate"></div>Validation</div>
-              <div class="legend-item"><div class="legend-dot output"></div>Action</div>
-            </div>
-            <div class="workflow-diagram">
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number extract">1</div>
-                  <div class="step-line extract"></div>
-                </div>
-                <div class="step-content extract">
-                  <span class="step-type-tag extract">Data Extract</span>
-                  <h4>Read URLA & Borrower Data</h4>
-                  <p>Pull all borrower info: names, SSN, DOB, email addresses, phone numbers, current address, employment.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number extract">2</div>
-                  <div class="step-line extract"></div>
-                </div>
-                <div class="step-content extract">
-                  <span class="step-type-tag extract">Data Extract</span>
-                  <h4>Read Property & Loan Details</h4>
-                  <p>Extract property address, type, occupancy, loan amount, term, product type, PMI/MIP data, AUS findings.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number validate">3</div>
-                  <div class="step-line validate"></div>
-                </div>
-                <div class="step-content validate">
-                  <span class="step-type-tag validate">Validation</span>
-                  <h4>Check 15+ Required Fields</h4>
-                  <p>Validate: email format, phone format, SSN format, property complete, PMI populated, AUS run, 4506-C present.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number validate">4</div>
-                  <div class="step-line validate"></div>
-                </div>
-                <div class="step-content validate">
-                  <span class="step-type-tag validate">Validation</span>
-                  <h4>Cross-Reference Business Rules</h4>
-                  <p>Check loan type-specific requirements: FHA needs MIP, VA needs funding fee calc, Conv >80% LTV needs PMI.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number output">5</div>
-                </div>
-                <div class="step-content output">
-                  <span class="step-type-tag output">Action</span>
-                  <h4>Generate Report / Block Submission</h4>
-                  <p>If errors found: display checklist with red/green status, block disclosure request. If clean: allow submission to proceed.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="details-panel">
-            <div class="use-case-box">
+        <div class="visio-layout">
+          <div class="visio-top-row">
+            <div class="visio-use-case">
               <h3>Use Case</h3>
               <p>LOs must manually verify 15+ checklist items before ordering disclosures, including email addresses, phone numbers, property details, PMI/MIP data, and more. This agent validates everything automatically before allowing the disclosure request.</p>
             </div>
-
-            <div class="opportunity-box">
+            <div class="visio-opportunity">
               <h3>Opportunity</h3>
               <p>Prevents incomplete disclosure submissions that cause kickbacks from the Disclosures Desk. Reduces turn times and improves borrower experience by catching errors upfront.</p>
             </div>
+          </div>
 
-            <div class="metrics-grid">
-              <div class="metric-card">
-                <div class="metric-value">5min</div>
-                <div class="metric-label">Per Loan Saved</div>
+          <div class="visio-flowchart">
+            <div class="visio-flowchart-header">
+              <span class="visio-flowchart-title">Agent Workflow</span>
+              <div class="visio-legend">
+                <div class="visio-legend-item"><div class="visio-legend-dot extract"></div>Data Extract</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot validate"></div>Validation</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot output"></div>Action</div>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">98%</div>
-                <div class="metric-label">Error Prevention</div>
+            </div>
+            <div class="visio-flow-grid">
+              <div class="visio-box extract">
+                <div class="visio-box-header">
+                  <span class="visio-box-number extract">1</span>
+                  <span class="visio-box-type extract">Data Extract</span>
+                </div>
+                <h4>Read URLA & Borrower Data</h4>
+                <p>Pull borrower info: names, SSN, DOB, email, phone, address, employment.</p>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">Low</div>
-                <div class="metric-label">Complexity</div>
+              <div class="visio-box extract">
+                <div class="visio-box-header">
+                  <span class="visio-box-number extract">2</span>
+                  <span class="visio-box-type extract">Data Extract</span>
+                </div>
+                <h4>Read Property & Loan Details</h4>
+                <p>Extract property address, type, occupancy, loan amount, term, PMI/MIP, AUS findings.</p>
+              </div>
+              <div class="visio-box validate">
+                <div class="visio-box-header">
+                  <span class="visio-box-number validate">3</span>
+                  <span class="visio-box-type validate">Validation</span>
+                </div>
+                <h4>Check 15+ Required Fields</h4>
+                <p>Validate: email, phone, SSN formats, property complete, PMI, AUS run, 4506-C.</p>
+              </div>
+              <div class="visio-box validate">
+                <div class="visio-box-header">
+                  <span class="visio-box-number validate">4</span>
+                  <span class="visio-box-type validate">Validation</span>
+                </div>
+                <h4>Cross-Reference Business Rules</h4>
+                <p>Check loan type rules: FHA=MIP, VA=funding fee, Conv >80% LTV=PMI.</p>
+              </div>
+              <div class="visio-box output">
+                <div class="visio-box-header">
+                  <span class="visio-box-number output">5</span>
+                  <span class="visio-box-type output">Action</span>
+                </div>
+                <h4>Generate Report / Block Submission</h4>
+                <p>Display checklist with red/green status. Block if errors, allow if clean.</p>
+              </div>
+            </div>
+            <div class="visio-metrics-row">
+              <div class="visio-metric">
+                <div class="value">5min</div>
+                <div class="label">Per Loan Saved</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">98%</div>
+                <div class="label">Error Prevention</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">Low</div>
+                <div class="label">Complexity</div>
               </div>
             </div>
           </div>
@@ -1472,8 +1674,6 @@
         <span class="breadcrumb-item active byte-section">Byte (4/10)</span>
         <span class="breadcrumb-sep">›</span>
         <span class="breadcrumb-item clear-section" data-goto="12">Clear</span>
-        <span class="breadcrumb-sep">›</span>
-        <span class="breadcrumb-item" data-goto="17">Summary</span>
       </div>
       <div class="slide-content">
         <div class="slide-header">
@@ -1490,107 +1690,90 @@
           <span class="system-badge byte">Byte LOS</span>
         </div>
 
-        <div class="main-content">
-          <div class="workflow-visual">
-            <div class="workflow-title">Agent Workflow (Pre-Candor)</div>
-            <div class="step-legend">
-              <div class="legend-item"><div class="legend-dot extract"></div>Data Extract</div>
-              <div class="legend-item"><div class="legend-dot ai"></div>AI Processing</div>
-              <div class="legend-item"><div class="legend-dot validate"></div>Validation</div>
-              <div class="legend-item"><div class="legend-dot output"></div>Action</div>
-            </div>
-            <div class="workflow-diagram">
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number extract">1</div>
-                  <div class="step-line extract"></div>
-                </div>
-                <div class="step-content extract">
-                  <span class="step-type-tag extract">Data Extract</span>
-                  <h4>Parse Borrower Needs List (BNL)</h4>
-                  <p>Read the BNL from Byte. Extract all outstanding document requests: paystubs, W2s, bank statements, tax returns, VOE, etc.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number extract">2</div>
-                  <div class="step-line extract"></div>
-                </div>
-                <div class="step-content extract">
-                  <span class="step-type-tag extract">Data Extract</span>
-                  <h4>Inventory Current Documents</h4>
-                  <p>Scan Stored Docs for uploaded files. Classify by type and check completeness (all pages present, legible, dated correctly).</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number validate">3</div>
-                  <div class="step-line validate"></div>
-                </div>
-                <div class="step-content validate">
-                  <span class="step-type-tag validate">Validation</span>
-                  <h4>BNL Gap Analysis</h4>
-                  <p>Compare BNL requirements vs docs received. Identify: still missing, partially received (needs more pages), received but expired/stale.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number output">4</div>
-                  <div class="step-line output"></div>
-                </div>
-                <div class="step-content output">
-                  <span class="step-type-tag output">Action</span>
-                  <h4>Create BNL-Based Conditions</h4>
-                  <p>Generate conditions for each outstanding BNL item. Tag as "BNL" source. These are SEPARATE from Candor UW conditions.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number ai">5</div>
-                  <div class="step-line ai"></div>
-                </div>
-                <div class="step-content ai">
-                  <span class="step-type-tag ai">AI Processing</span>
-                  <h4>Proactive Doc Analysis</h4>
-                  <p>AI reviews received docs for common issues: missing signatures, incomplete forms, math errors. Create conditions for fixes BEFORE Candor reviews.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number output">6</div>
-                </div>
-                <div class="step-content output">
-                  <span class="step-type-tag output">Action</span>
-                  <h4>Add to Conditions Screen</h4>
-                  <p>Insert all conditions with "BNL/Pre-UW" flag. Candor will later add its own UW conditions separately after full file review.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="details-panel">
-            <div class="use-case-box">
+        <div class="visio-layout">
+          <div class="visio-top-row">
+            <div class="visio-use-case">
               <h3>Use Case</h3>
               <p>The BNL lists documents needed from borrowers, but these don't automatically become conditions. This agent converts outstanding BNL items into trackable conditions AND proactively identifies doc issues - all BEFORE Candor underwriting. Candor will add its own UW conditions separately.</p>
             </div>
-
-            <div class="opportunity-box">
+            <div class="visio-opportunity">
               <h3>Opportunity</h3>
               <p>Creates conditions earlier in the process (pre-UW), reducing turn times. Separates "borrower doc collection" conditions from "underwriting findings" conditions for clearer tracking. Catches doc issues before Candor even sees the file.</p>
             </div>
+          </div>
 
-            <div class="metrics-grid">
-              <div class="metric-card">
-                <div class="metric-value">15min</div>
-                <div class="metric-label">Per Loan Saved</div>
+          <div class="visio-flowchart">
+            <div class="visio-flowchart-header">
+              <span class="visio-flowchart-title">Agent Workflow (Pre-Candor)</span>
+              <div class="visio-legend">
+                <div class="visio-legend-item"><div class="visio-legend-dot extract"></div>Data Extract</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot ai"></div>AI Processing</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot validate"></div>Validation</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot output"></div>Action</div>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">92%</div>
-                <div class="metric-label">Accuracy</div>
+            </div>
+            <div class="visio-flow-grid">
+              <div class="visio-box extract">
+                <div class="visio-box-header">
+                  <span class="visio-box-number extract">1</span>
+                  <span class="visio-box-type extract">Data Extract</span>
+                </div>
+                <h4>Parse Borrower Needs List (BNL)</h4>
+                <p>Read BNL from Byte. Extract outstanding doc requests: paystubs, W2s, bank stmts, etc.</p>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">Med</div>
-                <div class="metric-label">Complexity</div>
+              <div class="visio-box extract">
+                <div class="visio-box-header">
+                  <span class="visio-box-number extract">2</span>
+                  <span class="visio-box-type extract">Data Extract</span>
+                </div>
+                <h4>Inventory Current Documents</h4>
+                <p>Scan Stored Docs for uploads. Classify by type, check completeness and dates.</p>
+              </div>
+              <div class="visio-box validate">
+                <div class="visio-box-header">
+                  <span class="visio-box-number validate">3</span>
+                  <span class="visio-box-type validate">Validation</span>
+                </div>
+                <h4>BNL Gap Analysis</h4>
+                <p>Compare BNL vs docs received. ID missing, partial, or expired items.</p>
+              </div>
+              <div class="visio-box output">
+                <div class="visio-box-header">
+                  <span class="visio-box-number output">4</span>
+                  <span class="visio-box-type output">Action</span>
+                </div>
+                <h4>Create BNL-Based Conditions</h4>
+                <p>Generate conditions for outstanding BNL items. Tag as "BNL" source.</p>
+              </div>
+              <div class="visio-box ai">
+                <div class="visio-box-header">
+                  <span class="visio-box-number ai">5</span>
+                  <span class="visio-box-type ai">AI Processing</span>
+                </div>
+                <h4>Proactive Doc Analysis</h4>
+                <p>AI checks docs for issues: missing signatures, incomplete forms, errors.</p>
+              </div>
+              <div class="visio-box output">
+                <div class="visio-box-header">
+                  <span class="visio-box-number output">6</span>
+                  <span class="visio-box-type output">Action</span>
+                </div>
+                <h4>Add to Conditions Screen</h4>
+                <p>Insert all conditions with "BNL/Pre-UW" flag for tracking.</p>
+              </div>
+            </div>
+            <div class="visio-metrics-row">
+              <div class="visio-metric">
+                <div class="value">15min</div>
+                <div class="label">Per Loan Saved</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">92%</div>
+                <div class="label">Accuracy</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">Med</div>
+                <div class="label">Complexity</div>
               </div>
             </div>
           </div>
@@ -1606,8 +1789,6 @@
         <span class="breadcrumb-item active byte-section">Byte (5/10)</span>
         <span class="breadcrumb-sep">›</span>
         <span class="breadcrumb-item clear-section" data-goto="12">Clear</span>
-        <span class="breadcrumb-sep">›</span>
-        <span class="breadcrumb-item" data-goto="17">Summary</span>
       </div>
       <div class="slide-content">
         <div class="slide-header">
@@ -1624,96 +1805,82 @@
           <span class="system-badge byte">Byte LOS</span>
         </div>
 
-        <div class="main-content">
-          <div class="workflow-visual">
-            <div class="workflow-title">Agent Workflow</div>
-            <div class="step-legend">
-              <div class="legend-item"><div class="legend-dot extract"></div>Data Extract</div>
-              <div class="legend-item"><div class="legend-dot api"></div>External API</div>
-              <div class="legend-item"><div class="legend-dot validate"></div>Validation</div>
-              <div class="legend-item"><div class="legend-dot output"></div>Action</div>
-            </div>
-            <div class="workflow-diagram">
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number extract">1</div>
-                  <div class="step-line extract"></div>
-                </div>
-                <div class="step-content extract">
-                  <span class="step-type-tag extract">Data Extract</span>
-                  <h4>Read Employment Data</h4>
-                  <p>Pull borrower SSN, employer name, employer address, and employment start date from URLA.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number api">2</div>
-                  <div class="step-line api"></div>
-                </div>
-                <div class="step-content api">
-                  <span class="step-type-tag api">External API</span>
-                  <h4>Submit to TRUV/TWN</h4>
-                  <p>Call The Work Number or TRUV API with borrower consent. Request instant employment verification record.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number extract">3</div>
-                  <div class="step-line extract"></div>
-                </div>
-                <div class="step-content extract">
-                  <span class="step-type-tag extract">Data Extract</span>
-                  <h4>Parse API Response</h4>
-                  <p>Extract employment status (Active/Inactive), current as of date, job title, and income data if available.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number validate">4</div>
-                  <div class="step-line validate"></div>
-                </div>
-                <div class="step-content validate">
-                  <span class="step-type-tag validate">Validation</span>
-                  <h4>Verify Active Employment</h4>
-                  <p>Confirm employee shows "Active" status. Check "current as of" date meets investor timing requirements (typically 10-day window).</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number output">5</div>
-                </div>
-                <div class="step-content output">
-                  <span class="step-type-tag output">Action</span>
-                  <h4>Populate VVOE Screen & Store Doc</h4>
-                  <p>Fill Byte VVOE screen fields. Store verification report to Stored Docs. Update Important Dates with VVOE date.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="details-panel">
-            <div class="use-case-box">
+        <div class="visio-layout">
+          <div class="visio-top-row">
+            <div class="visio-use-case">
               <h3>Use Case</h3>
               <p>Processors must verify employment for every borrower prior to closing using electronic services. This agent automates the entire workflow - triggering the API request, parsing the response, and populating all required Byte fields.</p>
             </div>
-
-            <div class="opportunity-box">
+            <div class="visio-opportunity">
               <h3>Opportunity</h3>
               <p>Eliminates manual data entry for employment verification, reduces compliance risk by ensuring all fields are completed correctly, and speeds up the pre-closing checklist.</p>
             </div>
+          </div>
 
-            <div class="metrics-grid">
-              <div class="metric-card">
-                <div class="metric-value">5min</div>
-                <div class="metric-label">Per Borrower</div>
+          <div class="visio-flowchart">
+            <div class="visio-flowchart-header">
+              <span class="visio-flowchart-title">Agent Workflow</span>
+              <div class="visio-legend">
+                <div class="visio-legend-item"><div class="visio-legend-dot extract"></div>Data Extract</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot api"></div>External API</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot validate"></div>Validation</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot output"></div>Action</div>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">95%</div>
-                <div class="metric-label">Accuracy</div>
+            </div>
+            <div class="visio-flow-grid">
+              <div class="visio-box extract">
+                <div class="visio-box-header">
+                  <span class="visio-box-number extract">1</span>
+                  <span class="visio-box-type extract">Data Extract</span>
+                </div>
+                <h4>Read Employment Data</h4>
+                <p>Pull borrower SSN, employer name/address, and employment start date from URLA.</p>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">Med</div>
-                <div class="metric-label">Complexity</div>
+              <div class="visio-box api">
+                <div class="visio-box-header">
+                  <span class="visio-box-number api">2</span>
+                  <span class="visio-box-type api">External API</span>
+                </div>
+                <h4>Submit to TRUV/TWN</h4>
+                <p>Call The Work Number or TRUV API. Request instant employment verification.</p>
+              </div>
+              <div class="visio-box extract">
+                <div class="visio-box-header">
+                  <span class="visio-box-number extract">3</span>
+                  <span class="visio-box-type extract">Data Extract</span>
+                </div>
+                <h4>Parse API Response</h4>
+                <p>Extract employment status, current as of date, job title, and income data.</p>
+              </div>
+              <div class="visio-box validate">
+                <div class="visio-box-header">
+                  <span class="visio-box-number validate">4</span>
+                  <span class="visio-box-type validate">Validation</span>
+                </div>
+                <h4>Verify Active Employment</h4>
+                <p>Confirm "Active" status. Check date meets investor timing (10-day window).</p>
+              </div>
+              <div class="visio-box output">
+                <div class="visio-box-header">
+                  <span class="visio-box-number output">5</span>
+                  <span class="visio-box-type output">Action</span>
+                </div>
+                <h4>Populate VVOE Screen & Store Doc</h4>
+                <p>Fill Byte VVOE fields. Store report to Stored Docs. Update Important Dates.</p>
+              </div>
+            </div>
+            <div class="visio-metrics-row">
+              <div class="visio-metric">
+                <div class="value">5min</div>
+                <div class="label">Per Borrower</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">95%</div>
+                <div class="label">Accuracy</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">Med</div>
+                <div class="label">Complexity</div>
               </div>
             </div>
           </div>
@@ -1729,8 +1896,6 @@
         <span class="breadcrumb-item active byte-section">Byte (6/10)</span>
         <span class="breadcrumb-sep">›</span>
         <span class="breadcrumb-item clear-section" data-goto="12">Clear</span>
-        <span class="breadcrumb-sep">›</span>
-        <span class="breadcrumb-item" data-goto="17">Summary</span>
       </div>
       <div class="slide-content">
         <div class="slide-header">
@@ -1747,95 +1912,81 @@
           <span class="system-badge byte">Byte LOS</span>
         </div>
 
-        <div class="main-content">
-          <div class="workflow-visual">
-            <div class="workflow-title">Agent Workflow</div>
-            <div class="step-legend">
-              <div class="legend-item"><div class="legend-dot extract"></div>Data Extract</div>
-              <div class="legend-item"><div class="legend-dot ai"></div>AI Processing</div>
-              <div class="legend-item"><div class="legend-dot output"></div>Action</div>
-            </div>
-            <div class="workflow-diagram">
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number extract">1</div>
-                  <div class="step-line extract"></div>
-                </div>
-                <div class="step-content extract">
-                  <span class="step-type-tag extract">Data Extract</span>
-                  <h4>Analyze Income Sources</h4>
-                  <p>Extract all income: W2, paystubs, tax returns, self-employment, rental, retirement. Calculate YTD vs prior year variances.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number extract">2</div>
-                  <div class="step-line extract"></div>
-                </div>
-                <div class="step-content extract">
-                  <span class="step-type-tag extract">Data Extract</span>
-                  <h4>Review Credit Report</h4>
-                  <p>Pull credit scores, derogatory items, recent inquiries, payment history. Identify items requiring explanation (lates, collections).</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number extract">3</div>
-                  <div class="step-line extract"></div>
-                </div>
-                <div class="step-content extract">
-                  <span class="step-type-tag extract">Data Extract</span>
-                  <h4>Check Employment History</h4>
-                  <p>Map employment timeline for past 2 years. Flag gaps >30 days, recent job changes, or employer discrepancies.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number ai">4</div>
-                  <div class="step-line ai"></div>
-                </div>
-                <div class="step-content ai">
-                  <span class="step-type-tag ai">AI Processing</span>
-                  <h4>Generate Narrative</h4>
-                  <p>Write structured submission notes addressing each concern with supporting documentation references.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number output">5</div>
-                </div>
-                <div class="step-content output">
-                  <span class="step-type-tag output">Action</span>
-                  <h4>Insert to Cover Letter</h4>
-                  <p>Add notes to Cover Letter - Submission Notes screen with timestamp. Flag for processor review before UW submit.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="details-panel">
-            <div class="use-case-box">
+        <div class="visio-layout">
+          <div class="visio-top-row">
+            <div class="visio-use-case">
               <h3>Use Case</h3>
               <p>Before submitting to underwriting, processors must document challenging income situations, work history gaps, asset explanations, and credit concerns. This agent analyzes the file and generates comprehensive submission notes automatically.</p>
             </div>
-
-            <div class="opportunity-box">
+            <div class="visio-opportunity">
               <h3>Opportunity</h3>
               <p>Ensures consistent, thorough communication to underwriters. Reduces back-and-forth questions by proactively addressing potential concerns.</p>
             </div>
+          </div>
 
-            <div class="metrics-grid">
-              <div class="metric-card">
-                <div class="metric-value">8min</div>
-                <div class="metric-label">Per Loan Saved</div>
+          <div class="visio-flowchart">
+            <div class="visio-flowchart-header">
+              <span class="visio-flowchart-title">Agent Workflow</span>
+              <div class="visio-legend">
+                <div class="visio-legend-item"><div class="visio-legend-dot extract"></div>Data Extract</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot ai"></div>AI Processing</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot output"></div>Action</div>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">90%</div>
-                <div class="metric-label">Coverage</div>
+            </div>
+            <div class="visio-flow-grid">
+              <div class="visio-box extract">
+                <div class="visio-box-header">
+                  <span class="visio-box-number extract">1</span>
+                  <span class="visio-box-type extract">Data Extract</span>
+                </div>
+                <h4>Analyze Income Sources</h4>
+                <p>Extract all income types: W2, paystubs, tax returns, self-emp. Calc YTD variances.</p>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">Med</div>
-                <div class="metric-label">Complexity</div>
+              <div class="visio-box extract">
+                <div class="visio-box-header">
+                  <span class="visio-box-number extract">2</span>
+                  <span class="visio-box-type extract">Data Extract</span>
+                </div>
+                <h4>Review Credit Report</h4>
+                <p>Pull scores, derogatory items, inquiries. Flag items needing explanation.</p>
+              </div>
+              <div class="visio-box extract">
+                <div class="visio-box-header">
+                  <span class="visio-box-number extract">3</span>
+                  <span class="visio-box-type extract">Data Extract</span>
+                </div>
+                <h4>Check Employment History</h4>
+                <p>Map 2-year timeline. Flag gaps >30 days, job changes, discrepancies.</p>
+              </div>
+              <div class="visio-box ai">
+                <div class="visio-box-header">
+                  <span class="visio-box-number ai">4</span>
+                  <span class="visio-box-type ai">AI Processing</span>
+                </div>
+                <h4>Generate Narrative</h4>
+                <p>Write structured notes addressing each concern with doc references.</p>
+              </div>
+              <div class="visio-box output">
+                <div class="visio-box-header">
+                  <span class="visio-box-number output">5</span>
+                  <span class="visio-box-type output">Action</span>
+                </div>
+                <h4>Insert to Cover Letter</h4>
+                <p>Add to Submission Notes screen. Flag for processor review before UW submit.</p>
+              </div>
+            </div>
+            <div class="visio-metrics-row">
+              <div class="visio-metric">
+                <div class="value">8min</div>
+                <div class="label">Per Loan Saved</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">90%</div>
+                <div class="label">Coverage</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">Med</div>
+                <div class="label">Complexity</div>
               </div>
             </div>
           </div>
@@ -1851,8 +2002,6 @@
         <span class="breadcrumb-item active byte-section">Byte (7/10)</span>
         <span class="breadcrumb-sep">›</span>
         <span class="breadcrumb-item clear-section" data-goto="12">Clear</span>
-        <span class="breadcrumb-sep">›</span>
-        <span class="breadcrumb-item" data-goto="17">Summary</span>
       </div>
       <div class="slide-content">
         <div class="slide-header">
@@ -1869,108 +2018,91 @@
           <span class="system-badge byte">Byte LOS + BOB</span>
         </div>
 
-        <div class="main-content">
-          <div class="workflow-visual">
-            <div class="workflow-title">Agent Workflow</div>
-            <div class="step-legend">
-              <div class="legend-item"><div class="legend-dot extract"></div>Data Extract</div>
-              <div class="legend-item"><div class="legend-dot validate"></div>Validation</div>
-              <div class="legend-item"><div class="legend-dot ai"></div>AI Processing</div>
-              <div class="legend-item"><div class="legend-dot api"></div>External API</div>
-              <div class="legend-item"><div class="legend-dot output"></div>Action</div>
-            </div>
-            <div class="workflow-diagram">
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number extract">1</div>
-                  <div class="step-line extract"></div>
-                </div>
-                <div class="step-content extract">
-                  <span class="step-type-tag extract">Data Extract</span>
-                  <h4>Monitor Loan Status Changes</h4>
-                  <p>Subscribe to Byte status events. Detect when loan reaches key milestones: Docs Out, Funded, Closed, Purchase Ready.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number extract">2</div>
-                  <div class="step-line extract"></div>
-                </div>
-                <div class="step-content extract">
-                  <span class="step-type-tag extract">Data Extract</span>
-                  <h4>Scan Stored Documents</h4>
-                  <p>Enumerate all files in Stored Docs. Read document type, status, and approval state. Identify any untyped documents.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number ai">3</div>
-                  <div class="step-line ai"></div>
-                </div>
-                <div class="step-content ai">
-                  <span class="step-type-tag ai">AI Processing</span>
-                  <h4>Classify & Auto-Approve</h4>
-                  <p>Use OCR + ML to classify untyped docs. Bulk-update status from "Uploaded" to "Approved" for all eligible documents.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number validate">4</div>
-                  <div class="step-line validate"></div>
-                </div>
-                <div class="step-content validate">
-                  <span class="step-type-tag validate">Validation</span>
-                  <h4>Select BOB Template</h4>
-                  <p>Match loan status to appropriate BOB template: Credit Audit, Initial Disclosure, Closing Package, Investor Delivery, etc.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number api">5</div>
-                  <div class="step-line api"></div>
-                </div>
-                <div class="step-content api">
-                  <span class="step-type-tag api">External API</span>
-                  <h4>Trigger BOB Job</h4>
-                  <p>Call BOB API to kick off bundle generation job. Pass loan ID, template selection, and approved document list.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number output">6</div>
-                </div>
-                <div class="step-content output">
-                  <span class="step-type-tag output">Action</span>
-                  <h4>Generate & Deliver Bundle</h4>
-                  <p>BOB assembles PDF bundle with cover sheet, document index, and stacking order. Auto-upload to Byte or push to delivery channel.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="details-panel">
-            <div class="use-case-box">
+        <div class="visio-layout">
+          <div class="visio-top-row">
+            <div class="visio-use-case">
               <h3>Use Case</h3>
-              <p>Credit auditors currently monitor loan status manually, then run BOB jobs by hand when loans hit milestones. This agent <strong>listens for status changes</strong> and <strong>auto-triggers BOB</strong> to generate the right bundle at the right time—no manual intervention needed.</p>
+              <p>Credit auditors currently monitor loan status manually, then run BOB jobs by hand when loans hit milestones. This agent listens for status changes and auto-triggers BOB to generate the right bundle at the right time—no manual intervention needed.</p>
             </div>
-
-            <div class="opportunity-box">
+            <div class="visio-opportunity">
               <h3>Opportunity</h3>
               <p>Fully automated status-to-bundle pipeline. When a loan hits "Funded" or "Docs Out", BOB kicks off instantly. Eliminates queue monitoring and ensures bundles are ready the moment they're needed.</p>
             </div>
+          </div>
 
-            <div class="metrics-grid">
-              <div class="metric-card">
-                <div class="metric-value">12min</div>
-                <div class="metric-label">Per Bundle</div>
+          <div class="visio-flowchart">
+            <div class="visio-flowchart-header">
+              <span class="visio-flowchart-title">Agent Workflow</span>
+              <div class="visio-legend">
+                <div class="visio-legend-item"><div class="visio-legend-dot extract"></div>Data Extract</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot ai"></div>AI Processing</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot validate"></div>Validation</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot api"></div>External API</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot output"></div>Action</div>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">98%</div>
-                <div class="metric-label">Accuracy</div>
+            </div>
+            <div class="visio-flow-grid">
+              <div class="visio-box extract">
+                <div class="visio-box-header">
+                  <span class="visio-box-number extract">1</span>
+                  <span class="visio-box-type extract">Data Extract</span>
+                </div>
+                <h4>Monitor Loan Status Changes</h4>
+                <p>Subscribe to Byte events. Detect milestones: Docs Out, Funded, Closed.</p>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">Med</div>
-                <div class="metric-label">Complexity</div>
+              <div class="visio-box extract">
+                <div class="visio-box-header">
+                  <span class="visio-box-number extract">2</span>
+                  <span class="visio-box-type extract">Data Extract</span>
+                </div>
+                <h4>Scan Stored Documents</h4>
+                <p>Enumerate files in Stored Docs. Read type, status, approval state.</p>
+              </div>
+              <div class="visio-box ai">
+                <div class="visio-box-header">
+                  <span class="visio-box-number ai">3</span>
+                  <span class="visio-box-type ai">AI Processing</span>
+                </div>
+                <h4>Classify & Auto-Approve</h4>
+                <p>OCR + ML to classify untyped docs. Bulk-update to "Approved".</p>
+              </div>
+              <div class="visio-box validate">
+                <div class="visio-box-header">
+                  <span class="visio-box-number validate">4</span>
+                  <span class="visio-box-type validate">Validation</span>
+                </div>
+                <h4>Select BOB Template</h4>
+                <p>Match status to template: Credit Audit, Closing Package, Investor Delivery.</p>
+              </div>
+              <div class="visio-box api">
+                <div class="visio-box-header">
+                  <span class="visio-box-number api">5</span>
+                  <span class="visio-box-type api">External API</span>
+                </div>
+                <h4>Trigger BOB Job</h4>
+                <p>Call BOB API with loan ID, template, and approved document list.</p>
+              </div>
+              <div class="visio-box output">
+                <div class="visio-box-header">
+                  <span class="visio-box-number output">6</span>
+                  <span class="visio-box-type output">Action</span>
+                </div>
+                <h4>Generate & Deliver Bundle</h4>
+                <p>BOB assembles PDF bundle. Auto-upload to Byte or delivery channel.</p>
+              </div>
+            </div>
+            <div class="visio-metrics-row">
+              <div class="visio-metric">
+                <div class="value">12min</div>
+                <div class="label">Per Bundle</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">98%</div>
+                <div class="label">Accuracy</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">Med</div>
+                <div class="label">Complexity</div>
               </div>
             </div>
           </div>
@@ -1986,8 +2118,6 @@
         <span class="breadcrumb-item active byte-section">Byte (8/10)</span>
         <span class="breadcrumb-sep">›</span>
         <span class="breadcrumb-item clear-section" data-goto="12">Clear</span>
-        <span class="breadcrumb-sep">›</span>
-        <span class="breadcrumb-item" data-goto="17">Summary</span>
       </div>
       <div class="slide-content">
         <div class="slide-header">
@@ -2004,84 +2134,73 @@
           <span class="system-badge byte">Byte LOS</span>
         </div>
 
-        <div class="main-content">
-          <div class="workflow-visual">
-            <div class="workflow-title">Agent Workflow</div>
-            <div class="step-legend">
-              <div class="legend-item"><div class="legend-dot extract"></div>Data Extract</div>
-              <div class="legend-item"><div class="legend-dot ai"></div>AI Processing</div>
-              <div class="legend-item"><div class="legend-dot output"></div>Action</div>
-            </div>
-            <div class="workflow-diagram">
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number extract">1</div>
-                  <div class="step-line extract"></div>
-                </div>
-                <div class="step-content extract">
-                  <span class="step-type-tag extract">Data Extract</span>
-                  <h4>Detect New Condition Notes</h4>
-                  <p>Monitor Conditions Screen for new or updated notes. Capture note text, author, and timestamp.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number ai">2</div>
-                  <div class="step-line ai"></div>
-                </div>
-                <div class="step-content ai">
-                  <span class="step-type-tag ai">AI Processing</span>
-                  <h4>Identify Author Role</h4>
-                  <p>Determine sender role from user profile: Processor, Underwriter, PM, UW Manager. Map to responsible party.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number ai">3</div>
-                  <div class="step-line ai"></div>
-                </div>
-                <div class="step-content ai">
-                  <span class="step-type-tag ai">AI Processing</span>
-                  <h4>Classify Note Intent</h4>
-                  <p>Analyze note text to determine intent: requesting info, unable to clear, cleared, escalation, PTF request.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number output">4</div>
-                </div>
-                <div class="step-content output">
-                  <span class="step-type-tag output">Action</span>
-                  <h4>Apply Flag Color</h4>
-                  <p>Set flag: Red (can't clear), Blue (PM), Yellow (UW note), Green (Processor for UW), Orange (PTF), Purple (UW Mgr).</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="details-panel">
-            <div class="use-case-box">
+        <div class="visio-layout">
+          <div class="visio-top-row">
+            <div class="visio-use-case">
               <h3>Use Case</h3>
               <p>CMG uses a color-coding system for condition flags to communicate status and responsibility. This agent automatically assigns the correct color based on who added the note and what action is needed.</p>
             </div>
-
-            <div class="opportunity-box">
+            <div class="visio-opportunity">
               <h3>Opportunity</h3>
               <p>Ensures consistent communication standards across all teams. Eliminates the manual step of setting flag colors and reduces errors where incorrect colors cause confusion.</p>
             </div>
+          </div>
 
-            <div class="metrics-grid">
-              <div class="metric-card">
-                <div class="metric-value">2min</div>
-                <div class="metric-label">Per Condition</div>
+          <div class="visio-flowchart">
+            <div class="visio-flowchart-header">
+              <span class="visio-flowchart-title">Agent Workflow</span>
+              <div class="visio-legend">
+                <div class="visio-legend-item"><div class="visio-legend-dot extract"></div>Data Extract</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot ai"></div>AI Processing</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot output"></div>Action</div>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">95%</div>
-                <div class="metric-label">Accuracy</div>
+            </div>
+            <div class="visio-flow-grid">
+              <div class="visio-box extract">
+                <div class="visio-box-header">
+                  <span class="visio-box-number extract">1</span>
+                  <span class="visio-box-type extract">Data Extract</span>
+                </div>
+                <h4>Detect New Condition Notes</h4>
+                <p>Monitor Conditions Screen for new/updated notes. Capture text, author, timestamp.</p>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">Low</div>
-                <div class="metric-label">Complexity</div>
+              <div class="visio-box ai">
+                <div class="visio-box-header">
+                  <span class="visio-box-number ai">2</span>
+                  <span class="visio-box-type ai">AI Processing</span>
+                </div>
+                <h4>Identify Author Role</h4>
+                <p>Determine role from profile: Processor, UW, PM, UW Manager. Map to responsible party.</p>
+              </div>
+              <div class="visio-box ai">
+                <div class="visio-box-header">
+                  <span class="visio-box-number ai">3</span>
+                  <span class="visio-box-type ai">AI Processing</span>
+                </div>
+                <h4>Classify Note Intent</h4>
+                <p>Analyze note to determine intent: requesting info, can't clear, cleared, PTF request.</p>
+              </div>
+              <div class="visio-box output">
+                <div class="visio-box-header">
+                  <span class="visio-box-number output">4</span>
+                  <span class="visio-box-type output">Action</span>
+                </div>
+                <h4>Apply Flag Color</h4>
+                <p>Set flag: Red (can't clear), Blue (PM), Yellow (UW), Green (Proc), Orange (PTF).</p>
+              </div>
+            </div>
+            <div class="visio-metrics-row">
+              <div class="visio-metric">
+                <div class="value">2min</div>
+                <div class="label">Per Condition</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">95%</div>
+                <div class="label">Accuracy</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">Low</div>
+                <div class="label">Complexity</div>
               </div>
             </div>
           </div>
@@ -2097,8 +2216,6 @@
         <span class="breadcrumb-item active byte-section">Byte (9/10)</span>
         <span class="breadcrumb-sep">›</span>
         <span class="breadcrumb-item clear-section" data-goto="12">Clear</span>
-        <span class="breadcrumb-sep">›</span>
-        <span class="breadcrumb-item" data-goto="17">Summary</span>
       </div>
       <div class="slide-content">
         <div class="slide-header">
@@ -2115,85 +2232,74 @@
           <span class="system-badge byte">Byte LOS</span>
         </div>
 
-        <div class="main-content">
-          <div class="workflow-visual">
-            <div class="workflow-title">Agent Workflow</div>
-            <div class="step-legend">
-              <div class="legend-item"><div class="legend-dot extract"></div>Data Extract</div>
-              <div class="legend-item"><div class="legend-dot api"></div>Web Search</div>
-              <div class="legend-item"><div class="legend-dot validate"></div>Validation</div>
-              <div class="legend-item"><div class="legend-dot output"></div>Action</div>
-            </div>
-            <div class="workflow-diagram">
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number extract">1</div>
-                  <div class="step-line extract"></div>
-                </div>
-                <div class="step-content extract">
-                  <span class="step-type-tag extract">Data Extract</span>
-                  <h4>Read Employer Details</h4>
-                  <p>Pull employer name, address, city, state from URLA employment section.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number api">2</div>
-                  <div class="step-line api"></div>
-                </div>
-                <div class="step-content api">
-                  <span class="step-type-tag api">Web Search</span>
-                  <h4>Query Business Directories</h4>
-                  <p>Search Yellow Pages, Google Business, BBB, and company websites. Collect all phone numbers found with source URLs.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number validate">3</div>
-                  <div class="step-line validate"></div>
-                </div>
-                <div class="step-content validate">
-                  <span class="step-type-tag validate">Validation</span>
-                  <h4>Cross-Reference Sources</h4>
-                  <p>Compare numbers across multiple sources. Prioritize HR/Payroll lines over general numbers. Validate format.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number output">4</div>
-                </div>
-                <div class="step-content output">
-                  <span class="step-type-tag output">Action</span>
-                  <h4>Capture & Store Proof</h4>
-                  <p>Screenshot source pages. Store to Stored Docs. Populate "Source for Phone Number" field in Byte VVOE screen.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="details-panel">
-            <div class="use-case-box">
+        <div class="visio-layout">
+          <div class="visio-top-row">
+            <div class="visio-use-case">
               <h3>Use Case</h3>
               <p>For telephone VVOE, processors must independently verify the employer's phone number using public sources and capture documentation. This agent automates the search, validates the number, and captures proof screenshots automatically.</p>
             </div>
-
-            <div class="opportunity-box">
+            <div class="visio-opportunity">
               <h3>Opportunity</h3>
               <p>Eliminates manual web search that can take several minutes per employer. Ensures compliance with independent verification requirements while creating audit-ready documentation.</p>
             </div>
+          </div>
 
-            <div class="metrics-grid">
-              <div class="metric-card">
-                <div class="metric-value">2min</div>
-                <div class="metric-label">Per Employer</div>
+          <div class="visio-flowchart">
+            <div class="visio-flowchart-header">
+              <span class="visio-flowchart-title">Agent Workflow</span>
+              <div class="visio-legend">
+                <div class="visio-legend-item"><div class="visio-legend-dot extract"></div>Data Extract</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot api"></div>Web Search</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot validate"></div>Validation</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot output"></div>Action</div>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">90%</div>
-                <div class="metric-label">Find Rate</div>
+            </div>
+            <div class="visio-flow-grid">
+              <div class="visio-box extract">
+                <div class="visio-box-header">
+                  <span class="visio-box-number extract">1</span>
+                  <span class="visio-box-type extract">Data Extract</span>
+                </div>
+                <h4>Read Employer Details</h4>
+                <p>Pull employer name, address, city, state from URLA employment section.</p>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">Low</div>
-                <div class="metric-label">Complexity</div>
+              <div class="visio-box api">
+                <div class="visio-box-header">
+                  <span class="visio-box-number api">2</span>
+                  <span class="visio-box-type api">Web Search</span>
+                </div>
+                <h4>Query Business Directories</h4>
+                <p>Search Yellow Pages, Google, BBB, company sites. Collect phone numbers + source URLs.</p>
+              </div>
+              <div class="visio-box validate">
+                <div class="visio-box-header">
+                  <span class="visio-box-number validate">3</span>
+                  <span class="visio-box-type validate">Validation</span>
+                </div>
+                <h4>Cross-Reference Sources</h4>
+                <p>Compare numbers across sources. Prioritize HR/Payroll lines. Validate format.</p>
+              </div>
+              <div class="visio-box output">
+                <div class="visio-box-header">
+                  <span class="visio-box-number output">4</span>
+                  <span class="visio-box-type output">Action</span>
+                </div>
+                <h4>Capture & Store Proof</h4>
+                <p>Screenshot source pages. Store to Stored Docs. Populate VVOE phone field.</p>
+              </div>
+            </div>
+            <div class="visio-metrics-row">
+              <div class="visio-metric">
+                <div class="value">2min</div>
+                <div class="label">Per Employer</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">90%</div>
+                <div class="label">Find Rate</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">Low</div>
+                <div class="label">Complexity</div>
               </div>
             </div>
           </div>
@@ -2209,8 +2315,6 @@
         <span class="breadcrumb-item active byte-section">Byte (10/10)</span>
         <span class="breadcrumb-sep">›</span>
         <span class="breadcrumb-item clear-section" data-goto="12">Clear</span>
-        <span class="breadcrumb-sep">›</span>
-        <span class="breadcrumb-item" data-goto="17">Summary</span>
       </div>
       <div class="slide-content">
         <div class="slide-header">
@@ -2227,84 +2331,73 @@
           <span class="system-badge byte">Byte LOS</span>
         </div>
 
-        <div class="main-content">
-          <div class="workflow-visual">
-            <div class="workflow-title">Agent Workflow</div>
-            <div class="step-legend">
-              <div class="legend-item"><div class="legend-dot extract"></div>Data Extract</div>
-              <div class="legend-item"><div class="legend-dot validate"></div>Validation</div>
-              <div class="legend-item"><div class="legend-dot output"></div>Action</div>
-            </div>
-            <div class="workflow-diagram">
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number extract">1</div>
-                  <div class="step-line extract"></div>
-                </div>
-                <div class="step-content extract">
-                  <span class="step-type-tag extract">Data Extract</span>
-                  <h4>Identify Loan Program</h4>
-                  <p>Read loan type (Conv, FHA, VA, USDA), LTV, loan amount, and loan purpose from Byte.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number extract">2</div>
-                  <div class="step-line extract"></div>
-                </div>
-                <div class="step-content extract">
-                  <span class="step-type-tag extract">Data Extract</span>
-                  <h4>Check for Exemptions</h4>
-                  <p>For VA: read COE for disability status. For FHA: check streamline refi eligibility. For Conv: check LTV <80%.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number validate">3</div>
-                  <div class="step-line validate"></div>
-                </div>
-                <div class="step-content validate">
-                  <span class="step-type-tag validate">Validation</span>
-                  <h4>Calculate MI Amount</h4>
-                  <p>Apply correct formula: FHA (UFMIP + Annual MIP), VA Funding Fee, USDA Guarantee Fee, Conv PMI rates.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number output">4</div>
-                </div>
-                <div class="step-content output">
-                  <span class="step-type-tag output">Action</span>
-                  <h4>Populate MI Fields</h4>
-                  <p>Enter calculated values in appropriate Byte screens: MI type, upfront amount, monthly amount, financed flag.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="details-panel">
-            <div class="use-case-box">
+        <div class="visio-layout">
+          <div class="visio-top-row">
+            <div class="visio-use-case">
               <h3>Use Case</h3>
               <p>MI calculations vary significantly by loan type: Conventional PMI, FHA MIP (UFMIP + Annual), VA Funding Fee, and USDA Guarantee Fee. This agent determines the correct values and populates all required fields based on loan program.</p>
             </div>
-
-            <div class="opportunity-box">
+            <div class="visio-opportunity">
               <h3>Opportunity</h3>
               <p>Ensures 100% compliance with MI requirements. Eliminates calculation errors that cause disclosure issues. Handles special cases like disabled veteran exemptions automatically.</p>
             </div>
+          </div>
 
-            <div class="metrics-grid">
-              <div class="metric-card">
-                <div class="metric-value">3min</div>
-                <div class="metric-label">Per Loan Saved</div>
+          <div class="visio-flowchart">
+            <div class="visio-flowchart-header">
+              <span class="visio-flowchart-title">Agent Workflow</span>
+              <div class="visio-legend">
+                <div class="visio-legend-item"><div class="visio-legend-dot extract"></div>Data Extract</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot validate"></div>Validation</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot output"></div>Action</div>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">100%</div>
-                <div class="metric-label">Compliance</div>
+            </div>
+            <div class="visio-flow-grid">
+              <div class="visio-box extract">
+                <div class="visio-box-header">
+                  <span class="visio-box-number extract">1</span>
+                  <span class="visio-box-type extract">Data Extract</span>
+                </div>
+                <h4>Identify Loan Program</h4>
+                <p>Read loan type (Conv, FHA, VA, USDA), LTV, loan amount, and purpose from Byte.</p>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">Med</div>
-                <div class="metric-label">Complexity</div>
+              <div class="visio-box extract">
+                <div class="visio-box-header">
+                  <span class="visio-box-number extract">2</span>
+                  <span class="visio-box-type extract">Data Extract</span>
+                </div>
+                <h4>Check for Exemptions</h4>
+                <p>VA: check COE disability. FHA: streamline refi. Conv: LTV &lt;80%.</p>
+              </div>
+              <div class="visio-box validate">
+                <div class="visio-box-header">
+                  <span class="visio-box-number validate">3</span>
+                  <span class="visio-box-type validate">Validation</span>
+                </div>
+                <h4>Calculate MI Amount</h4>
+                <p>Apply formula: FHA UFMIP+MIP, VA Funding Fee, USDA Fee, Conv PMI rates.</p>
+              </div>
+              <div class="visio-box output">
+                <div class="visio-box-header">
+                  <span class="visio-box-number output">4</span>
+                  <span class="visio-box-type output">Action</span>
+                </div>
+                <h4>Populate MI Fields</h4>
+                <p>Enter values in Byte: MI type, upfront amount, monthly, financed flag.</p>
+              </div>
+            </div>
+            <div class="visio-metrics-row">
+              <div class="visio-metric">
+                <div class="value">3min</div>
+                <div class="label">Per Loan Saved</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">100%</div>
+                <div class="label">Compliance</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">Med</div>
+                <div class="label">Complexity</div>
               </div>
             </div>
           </div>
@@ -2320,8 +2413,6 @@
         <span class="breadcrumb-item byte-section" data-goto="2">Byte</span>
         <span class="breadcrumb-sep">›</span>
         <span class="breadcrumb-item active clear-section">Clear (1/5)</span>
-        <span class="breadcrumb-sep">›</span>
-        <span class="breadcrumb-item" data-goto="17">Summary</span>
       </div>
       <div class="slide-content">
         <div class="slide-header">
@@ -2338,85 +2429,74 @@
           <span class="system-badge clear">Clear 2.0</span>
         </div>
 
-        <div class="main-content">
-          <div class="workflow-visual">
-            <div class="workflow-title">Agent Workflow</div>
-            <div class="step-legend">
-              <div class="legend-item"><div class="legend-dot extract"></div>Data Extract</div>
-              <div class="legend-item"><div class="legend-dot ai"></div>AI Processing</div>
-              <div class="legend-item"><div class="legend-dot validate"></div>Validation</div>
-              <div class="legend-item"><div class="legend-dot output"></div>Action</div>
-            </div>
-            <div class="workflow-diagram">
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number extract">1</div>
-                  <div class="step-line extract"></div>
-                </div>
-                <div class="step-content extract">
-                  <span class="step-type-tag extract">Data Extract</span>
-                  <h4>Parse Questionnaire PDF</h4>
-                  <p>OCR the condo questionnaire document. Extract all form fields, checkboxes, and narrative responses.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number ai">2</div>
-                  <div class="step-line ai"></div>
-                </div>
-                <div class="step-content ai">
-                  <span class="step-type-tag ai">AI Processing</span>
-                  <h4>Extract Key Data Points</h4>
-                  <p>Pull: total units, % sold, % owner-occupied, reserve ratio, delinquency rate, pending litigation, special assessments.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number validate">3</div>
-                  <div class="step-line validate"></div>
-                </div>
-                <div class="step-content validate">
-                  <span class="step-type-tag validate">Validation</span>
-                  <h4>Check Agency Guidelines</h4>
-                  <p>Compare against FNMA/FHLMC requirements: reserves ≥10%, delinquency &lt;15%, no material litigation, insurance current.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number output">4</div>
-                </div>
-                <div class="step-content output">
-                  <span class="step-type-tag output">Action</span>
-                  <h4>Generate Eligibility Report</h4>
-                  <p>Create summary with pass/fail for each requirement. Flag red items requiring UW attention. Route to appropriate queue.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="details-panel">
-            <div class="use-case-box">
+        <div class="visio-layout">
+          <div class="visio-top-row">
+            <div class="visio-use-case">
               <h3>Use Case</h3>
               <p>Reviewing condo questionnaires requires checking reserve ratios, delinquency rates, litigation status, insurance coverage, and more. This agent parses the questionnaire and automatically evaluates all requirements.</p>
             </div>
-
-            <div class="opportunity-box">
+            <div class="visio-opportunity">
               <h3>Opportunity</h3>
               <p>Dramatically reduces time to review complex condo documents. Catches red flags like pending special assessments or high delinquency immediately. Generates structured UW-ready summaries.</p>
             </div>
+          </div>
 
-            <div class="metrics-grid">
-              <div class="metric-card">
-                <div class="metric-value">60%</div>
-                <div class="metric-label">Time Savings</div>
+          <div class="visio-flowchart">
+            <div class="visio-flowchart-header">
+              <span class="visio-flowchart-title">Agent Workflow</span>
+              <div class="visio-legend">
+                <div class="visio-legend-item"><div class="visio-legend-dot extract"></div>Data Extract</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot ai"></div>AI Processing</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot validate"></div>Validation</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot output"></div>Action</div>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">93</div>
-                <div class="metric-label">Priority Score</div>
+            </div>
+            <div class="visio-flow-grid">
+              <div class="visio-box extract">
+                <div class="visio-box-header">
+                  <span class="visio-box-number extract">1</span>
+                  <span class="visio-box-type extract">Data Extract</span>
+                </div>
+                <h4>Parse Questionnaire PDF</h4>
+                <p>OCR the condo questionnaire. Extract form fields, checkboxes, narrative responses.</p>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">High</div>
-                <div class="metric-label">ROI</div>
+              <div class="visio-box ai">
+                <div class="visio-box-header">
+                  <span class="visio-box-number ai">2</span>
+                  <span class="visio-box-type ai">AI Processing</span>
+                </div>
+                <h4>Extract Key Data Points</h4>
+                <p>Pull: units, % sold, owner-occupied %, reserves, delinquency, litigation, assessments.</p>
+              </div>
+              <div class="visio-box validate">
+                <div class="visio-box-header">
+                  <span class="visio-box-number validate">3</span>
+                  <span class="visio-box-type validate">Validation</span>
+                </div>
+                <h4>Check Agency Guidelines</h4>
+                <p>Compare vs FNMA/FHLMC: reserves ≥10%, delinquency &lt;15%, no litigation, insurance OK.</p>
+              </div>
+              <div class="visio-box output">
+                <div class="visio-box-header">
+                  <span class="visio-box-number output">4</span>
+                  <span class="visio-box-type output">Action</span>
+                </div>
+                <h4>Generate Eligibility Report</h4>
+                <p>Create pass/fail summary. Flag red items for UW. Route to appropriate queue.</p>
+              </div>
+            </div>
+            <div class="visio-metrics-row">
+              <div class="visio-metric">
+                <div class="value">60%</div>
+                <div class="label">Time Savings</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">93</div>
+                <div class="label">Priority Score</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">High</div>
+                <div class="label">ROI</div>
               </div>
             </div>
           </div>
@@ -2432,8 +2512,6 @@
         <span class="breadcrumb-item byte-section" data-goto="2">Byte</span>
         <span class="breadcrumb-sep">›</span>
         <span class="breadcrumb-item active clear-section">Clear (2/5)</span>
-        <span class="breadcrumb-sep">›</span>
-        <span class="breadcrumb-item" data-goto="17">Summary</span>
       </div>
       <div class="slide-content">
         <div class="slide-header">
@@ -2450,84 +2528,73 @@
           <span class="system-badge clear">Clear 2.0</span>
         </div>
 
-        <div class="main-content">
-          <div class="workflow-visual">
-            <div class="workflow-title">Agent Workflow</div>
-            <div class="step-legend">
-              <div class="legend-item"><div class="legend-dot extract"></div>Data Extract</div>
-              <div class="legend-item"><div class="legend-dot validate"></div>Validation</div>
-              <div class="legend-item"><div class="legend-dot output"></div>Action</div>
-            </div>
-            <div class="workflow-diagram">
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number extract">1</div>
-                  <div class="step-line extract"></div>
-                </div>
-                <div class="step-content extract">
-                  <span class="step-type-tag extract">Data Extract</span>
-                  <h4>Read All Borrower Fields</h4>
-                  <p>Pull: SSN, DOB, legal names, citizenship, housing history, employment for all borrowers on loan.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number validate">2</div>
-                  <div class="step-line validate"></div>
-                </div>
-                <div class="step-content validate">
-                  <span class="step-type-tag validate">Validation</span>
-                  <h4>Format & Completeness Checks</h4>
-                  <p>Validate SSN format (9 digits), DOB format, email format, phone format. Flag any null or malformed required fields.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number validate">3</div>
-                  <div class="step-line validate"></div>
-                </div>
-                <div class="step-content validate">
-                  <span class="step-type-tag validate">Validation</span>
-                  <h4>Business Rule Validation</h4>
-                  <p>Check: income sources have amounts, assets have account numbers, property address complete, loan terms populated.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number output">4</div>
-                </div>
-                <div class="step-content output">
-                  <span class="step-type-tag output">Action</span>
-                  <h4>Generate Error Report</h4>
-                  <p>Display validation results with field-level errors and fix suggestions. Block AUS submit if critical errors exist.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="details-panel">
-            <div class="use-case-box">
+        <div class="visio-layout">
+          <div class="visio-top-row">
+            <div class="visio-use-case">
               <h3>Use Case</h3>
               <p>AUS submissions often fail due to missing or incorrect data. This agent validates all required fields before submission - SSN format, DOB, income sources, employment dates - preventing costly resubmission cycles.</p>
             </div>
-
-            <div class="opportunity-box">
+            <div class="visio-opportunity">
               <h3>Opportunity</h3>
               <p>Catches 98% of data errors before AUS submission. Reduces turn times by eliminating fix-and-resubmit cycles. Provides specific fix suggestions.</p>
             </div>
+          </div>
 
-            <div class="metrics-grid">
-              <div class="metric-card">
-                <div class="metric-value">15min</div>
-                <div class="metric-label">Per Loan Saved</div>
+          <div class="visio-flowchart">
+            <div class="visio-flowchart-header">
+              <span class="visio-flowchart-title">Agent Workflow</span>
+              <div class="visio-legend">
+                <div class="visio-legend-item"><div class="visio-legend-dot extract"></div>Data Extract</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot validate"></div>Validation</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot output"></div>Action</div>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">98%</div>
-                <div class="metric-label">Error Catch</div>
+            </div>
+            <div class="visio-flow-grid">
+              <div class="visio-box extract">
+                <div class="visio-box-header">
+                  <span class="visio-box-number extract">1</span>
+                  <span class="visio-box-type extract">Data Extract</span>
+                </div>
+                <h4>Read All Borrower Fields</h4>
+                <p>Pull SSN, DOB, names, citizenship, housing history, employment for all borrowers.</p>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">Low</div>
-                <div class="metric-label">Complexity</div>
+              <div class="visio-box validate">
+                <div class="visio-box-header">
+                  <span class="visio-box-number validate">2</span>
+                  <span class="visio-box-type validate">Validation</span>
+                </div>
+                <h4>Format & Completeness Checks</h4>
+                <p>Validate SSN (9 digits), DOB, email, phone formats. Flag null or malformed fields.</p>
+              </div>
+              <div class="visio-box validate">
+                <div class="visio-box-header">
+                  <span class="visio-box-number validate">3</span>
+                  <span class="visio-box-type validate">Validation</span>
+                </div>
+                <h4>Business Rule Validation</h4>
+                <p>Check income has amounts, assets have account #s, property address complete.</p>
+              </div>
+              <div class="visio-box output">
+                <div class="visio-box-header">
+                  <span class="visio-box-number output">4</span>
+                  <span class="visio-box-type output">Action</span>
+                </div>
+                <h4>Generate Error Report</h4>
+                <p>Display field-level errors with fix suggestions. Block AUS if critical errors exist.</p>
+              </div>
+            </div>
+            <div class="visio-metrics-row">
+              <div class="visio-metric">
+                <div class="value">15min</div>
+                <div class="label">Per Loan Saved</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">98%</div>
+                <div class="label">Error Catch</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">Low</div>
+                <div class="label">Complexity</div>
               </div>
             </div>
           </div>
@@ -2543,8 +2610,6 @@
         <span class="breadcrumb-item byte-section" data-goto="2">Byte</span>
         <span class="breadcrumb-sep">›</span>
         <span class="breadcrumb-item active clear-section">Clear (3/5)</span>
-        <span class="breadcrumb-sep">›</span>
-        <span class="breadcrumb-item" data-goto="17">Summary</span>
       </div>
       <div class="slide-content">
         <div class="slide-header">
@@ -2561,84 +2626,73 @@
           <span class="system-badge clear">Clear 2.0</span>
         </div>
 
-        <div class="main-content">
-          <div class="workflow-visual">
-            <div class="workflow-title">Agent Workflow</div>
-            <div class="step-legend">
-              <div class="legend-item"><div class="legend-dot extract"></div>Data Extract</div>
-              <div class="legend-item"><div class="legend-dot api"></div>External API</div>
-              <div class="legend-item"><div class="legend-dot output"></div>Action</div>
-            </div>
-            <div class="workflow-diagram">
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number extract">1</div>
-                  <div class="step-line extract"></div>
-                </div>
-                <div class="step-content extract">
-                  <span class="step-type-tag extract">Data Extract</span>
-                  <h4>Get Property Address</h4>
-                  <p>Read subject property address from loan file. Normalize address format for database queries.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number api">2</div>
-                  <div class="step-line api"></div>
-                </div>
-                <div class="step-content api">
-                  <span class="step-type-tag api">External API</span>
-                  <h4>Query Fannie Mae CPM</h4>
-                  <p>Search Condo Project Manager database by address. Check for "Approved" or "Accepted" status. Capture project ID.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number api">3</div>
-                  <div class="step-line api"></div>
-                </div>
-                <div class="step-content api">
-                  <span class="step-type-tag api">External API</span>
-                  <h4>Query Freddie Mac PERS</h4>
-                  <p>Search PERS database by address. Check for "Approved" status and expiration date. Capture PERS ID if found.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number output">4</div>
-                </div>
-                <div class="step-content output">
-                  <span class="step-type-tag output">Action</span>
-                  <h4>Report Results & Recommend Path</h4>
-                  <p>Return status for both. If pre-approved: skip questionnaire, use expedited path. If not found: route to full review.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="details-panel">
-            <div class="use-case-box">
+        <div class="visio-layout">
+          <div class="visio-top-row">
+            <div class="visio-use-case">
               <h3>Use Case</h3>
               <p>For condo loans, processors must manually check both Fannie Mae CPM and Freddie Mac PERS databases. This agent automates both lookups and immediately routes eligible loans to expedited processing.</p>
             </div>
-
-            <div class="opportunity-box">
+            <div class="visio-opportunity">
               <h3>Opportunity</h3>
               <p>If a project is pre-approved, the full questionnaire process can be skipped - saving significant time. Agent provides immediate answers and captures approval IDs.</p>
             </div>
+          </div>
 
-            <div class="metrics-grid">
-              <div class="metric-card">
-                <div class="metric-value">45%</div>
-                <div class="metric-label">Time Savings</div>
+          <div class="visio-flowchart">
+            <div class="visio-flowchart-header">
+              <span class="visio-flowchart-title">Agent Workflow</span>
+              <div class="visio-legend">
+                <div class="visio-legend-item"><div class="visio-legend-dot extract"></div>Data Extract</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot api"></div>External API</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot output"></div>Action</div>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">85</div>
-                <div class="metric-label">Priority Score</div>
+            </div>
+            <div class="visio-flow-grid">
+              <div class="visio-box extract">
+                <div class="visio-box-header">
+                  <span class="visio-box-number extract">1</span>
+                  <span class="visio-box-type extract">Data Extract</span>
+                </div>
+                <h4>Get Property Address</h4>
+                <p>Read subject property address from loan file. Normalize format for queries.</p>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">High</div>
-                <div class="metric-label">ROI</div>
+              <div class="visio-box api">
+                <div class="visio-box-header">
+                  <span class="visio-box-number api">2</span>
+                  <span class="visio-box-type api">External API</span>
+                </div>
+                <h4>Query Fannie Mae CPM</h4>
+                <p>Search CPM database by address. Check "Approved/Accepted" status. Capture project ID.</p>
+              </div>
+              <div class="visio-box api">
+                <div class="visio-box-header">
+                  <span class="visio-box-number api">3</span>
+                  <span class="visio-box-type api">External API</span>
+                </div>
+                <h4>Query Freddie Mac PERS</h4>
+                <p>Search PERS by address. Check "Approved" status and expiration. Capture PERS ID.</p>
+              </div>
+              <div class="visio-box output">
+                <div class="visio-box-header">
+                  <span class="visio-box-number output">4</span>
+                  <span class="visio-box-type output">Action</span>
+                </div>
+                <h4>Report Results & Recommend Path</h4>
+                <p>If pre-approved: skip questionnaire, expedite. If not found: route to full review.</p>
+              </div>
+            </div>
+            <div class="visio-metrics-row">
+              <div class="visio-metric">
+                <div class="value">45%</div>
+                <div class="label">Time Savings</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">85</div>
+                <div class="label">Priority Score</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">High</div>
+                <div class="label">ROI</div>
               </div>
             </div>
           </div>
@@ -2654,8 +2708,6 @@
         <span class="breadcrumb-item byte-section" data-goto="2">Byte</span>
         <span class="breadcrumb-sep">›</span>
         <span class="breadcrumb-item active clear-section">Clear (4/5)</span>
-        <span class="breadcrumb-sep">›</span>
-        <span class="breadcrumb-item" data-goto="17">Summary</span>
       </div>
       <div class="slide-content">
         <div class="slide-header">
@@ -2672,84 +2724,73 @@
           <span class="system-badge clear">Clear 2.0</span>
         </div>
 
-        <div class="main-content">
-          <div class="workflow-visual">
-            <div class="workflow-title">Agent Workflow</div>
-            <div class="step-legend">
-              <div class="legend-item"><div class="legend-dot extract"></div>Data Extract</div>
-              <div class="legend-item"><div class="legend-dot ai"></div>AI Processing</div>
-              <div class="legend-item"><div class="legend-dot output"></div>Action</div>
-            </div>
-            <div class="workflow-diagram">
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number extract">1</div>
-                  <div class="step-line extract"></div>
-                </div>
-                <div class="step-content extract">
-                  <span class="step-type-tag extract">Data Extract</span>
-                  <h4>Parse AUS Response</h4>
-                  <p>Extract recommendation (Approve/Refer), all conditions, and message codes from DU or LPA findings document.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number ai">2</div>
-                  <div class="step-line ai"></div>
-                </div>
-                <div class="step-content ai">
-                  <span class="step-type-tag ai">AI Processing</span>
-                  <h4>Categorize Conditions</h4>
-                  <p>Group by type: income documentation, asset verification, property issues, credit items, gift funds, title/legal.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number ai">3</div>
-                  <div class="step-line ai"></div>
-                </div>
-                <div class="step-content ai">
-                  <span class="step-type-tag ai">AI Processing</span>
-                  <h4>Prioritize & Estimate</h4>
-                  <p>Rank by urgency and complexity. Estimate typical turnaround time for each condition type (VOE: 3-5 days, etc.)</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number output">4</div>
-                </div>
-                <div class="step-content output">
-                  <span class="step-type-tag output">Action</span>
-                  <h4>Generate Action List</h4>
-                  <p>Create prioritized task list with suggested next steps for each condition. Identify items processor can clear vs UW required.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="details-panel">
-            <div class="use-case-box">
+        <div class="visio-layout">
+          <div class="visio-top-row">
+            <div class="visio-use-case">
               <h3>Use Case</h3>
               <p>After receiving AUS findings, processors must interpret conditions and prioritize work. This agent uses NLP to parse findings and provide categorized, prioritized action lists with suggested next steps.</p>
             </div>
-
-            <div class="opportunity-box">
+            <div class="visio-opportunity">
               <h3>Opportunity</h3>
               <p>Turns complex AUS findings into actionable task lists. Suggests turnaround times for each condition. Helps processors understand what to work on first.</p>
             </div>
+          </div>
 
-            <div class="metrics-grid">
-              <div class="metric-card">
-                <div class="metric-value">10min</div>
-                <div class="metric-label">Per Loan Saved</div>
+          <div class="visio-flowchart">
+            <div class="visio-flowchart-header">
+              <span class="visio-flowchart-title">Agent Workflow</span>
+              <div class="visio-legend">
+                <div class="visio-legend-item"><div class="visio-legend-dot extract"></div>Data Extract</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot ai"></div>AI Processing</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot output"></div>Action</div>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">95%</div>
-                <div class="metric-label">Accuracy</div>
+            </div>
+            <div class="visio-flow-grid">
+              <div class="visio-box extract">
+                <div class="visio-box-header">
+                  <span class="visio-box-number extract">1</span>
+                  <span class="visio-box-type extract">Data Extract</span>
+                </div>
+                <h4>Parse AUS Response</h4>
+                <p>Extract recommendation (Approve/Refer), conditions, and message codes from DU/LPA.</p>
               </div>
-              <div class="metric-card">
-                <div class="metric-value">Med</div>
-                <div class="metric-label">Complexity</div>
+              <div class="visio-box ai">
+                <div class="visio-box-header">
+                  <span class="visio-box-number ai">2</span>
+                  <span class="visio-box-type ai">AI Processing</span>
+                </div>
+                <h4>Categorize Conditions</h4>
+                <p>Group by type: income docs, asset verification, property, credit, gift funds, title.</p>
+              </div>
+              <div class="visio-box ai">
+                <div class="visio-box-header">
+                  <span class="visio-box-number ai">3</span>
+                  <span class="visio-box-type ai">AI Processing</span>
+                </div>
+                <h4>Prioritize & Estimate</h4>
+                <p>Rank by urgency/complexity. Estimate turnaround time for each condition type.</p>
+              </div>
+              <div class="visio-box output">
+                <div class="visio-box-header">
+                  <span class="visio-box-number output">4</span>
+                  <span class="visio-box-type output">Action</span>
+                </div>
+                <h4>Generate Action List</h4>
+                <p>Create prioritized tasks with next steps. ID items processor vs UW can clear.</p>
+              </div>
+            </div>
+            <div class="visio-metrics-row">
+              <div class="visio-metric">
+                <div class="value">10min</div>
+                <div class="label">Per Loan Saved</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">95%</div>
+                <div class="label">Accuracy</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">Med</div>
+                <div class="label">Complexity</div>
               </div>
             </div>
           </div>
@@ -2765,8 +2806,6 @@
         <span class="breadcrumb-item byte-section" data-goto="2">Byte</span>
         <span class="breadcrumb-sep">›</span>
         <span class="breadcrumb-item active clear-section">Clear (5/5)</span>
-        <span class="breadcrumb-sep">›</span>
-        <span class="breadcrumb-item" data-goto="17">Summary</span>
       </div>
       <div class="slide-content">
         <div class="slide-header">
@@ -2783,207 +2822,73 @@
           <span class="system-badge clear">Clear 2.0</span>
         </div>
 
-        <div class="main-content">
-          <div class="workflow-visual">
-            <div class="workflow-title">Agent Workflow</div>
-            <div class="step-legend">
-              <div class="legend-item"><div class="legend-dot extract"></div>Data Extract</div>
-              <div class="legend-item"><div class="legend-dot validate"></div>Validation</div>
-              <div class="legend-item"><div class="legend-dot output"></div>Action</div>
-            </div>
-            <div class="workflow-diagram">
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number extract">1</div>
-                  <div class="step-line extract"></div>
-                </div>
-                <div class="step-content extract">
-                  <span class="step-type-tag extract">Data Extract</span>
-                  <h4>Parse Insurance Certificate</h4>
-                  <p>OCR the HOA master policy certificate. Extract carrier, policy number, effective dates, and all coverage lines.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number validate">2</div>
-                  <div class="step-line validate"></div>
-                </div>
-                <div class="step-content validate">
-                  <span class="step-type-tag validate">Validation</span>
-                  <h4>Check Coverage Types</h4>
-                  <p>Verify required coverages present: Property/Hazard, General Liability (≥$1M), Fidelity Bond (≥3mo assessments).</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number validate">3</div>
-                  <div class="step-line validate"></div>
-                </div>
-                <div class="step-content validate">
-                  <span class="step-type-tag validate">Validation</span>
-                  <h4>Validate Limits & Dates</h4>
-                  <p>Confirm policy not expired, deductibles within limits (≤5%), replacement cost coverage adequate.</p>
-                </div>
-              </div>
-              <div class="flow-step">
-                <div class="step-indicator">
-                  <div class="step-number output">4</div>
-                </div>
-                <div class="step-content output">
-                  <span class="step-type-tag output">Action</span>
-                  <h4>Generate Compliance Report</h4>
-                  <p>Output pass/fail for each requirement. List specific deficiencies with required corrections for any failures.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="details-panel">
-            <div class="use-case-box">
+        <div class="visio-layout">
+          <div class="visio-top-row">
+            <div class="visio-use-case">
               <h3>Use Case</h3>
               <p>HOA master insurance must include property/hazard, liability, fidelity bond, and potentially flood coverage. The agent reviews the certificate against agency requirements and flags any gaps.</p>
             </div>
-
-            <div class="opportunity-box">
+            <div class="visio-opportunity">
               <h3>Opportunity</h3>
               <p>Ensures compliance with complex insurance requirements. Catches common issues like expired policies, insufficient deductibles, or missing fidelity bond before they cause delays.</p>
             </div>
-
-            <div class="metrics-grid">
-              <div class="metric-card">
-                <div class="metric-value">35%</div>
-                <div class="metric-label">Time Savings</div>
-              </div>
-              <div class="metric-card">
-                <div class="metric-value">79</div>
-                <div class="metric-label">Priority Score</div>
-              </div>
-              <div class="metric-card">
-                <div class="metric-value">Med</div>
-                <div class="metric-label">Complexity</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Slide 17: Summary -->
-    <div class="slide" data-slide="17">
-      <div class="breadcrumbs">
-        <span class="breadcrumb-item" data-goto="0">Title</span>
-        <span class="breadcrumb-sep">›</span>
-        <span class="breadcrumb-item" data-goto="1">Overview</span>
-        <span class="breadcrumb-sep">›</span>
-        <span class="breadcrumb-item byte-section" data-goto="2">Byte</span>
-        <span class="breadcrumb-sep">›</span>
-        <span class="breadcrumb-item clear-section" data-goto="12">Clear</span>
-        <span class="breadcrumb-sep">›</span>
-        <span class="breadcrumb-item active">Summary</span>
-      </div>
-      <div class="slide-content">
-        <div class="slide-header" style="border-bottom: none; margin-bottom: 10px; padding-bottom: 0;">
-          <div>
-            <div class="label">Summary</div>
-            <h1 style="font-size: 2.2rem;">Top AI Agent Opportunities</h1>
-            <p class="subtitle">15 high-impact automation candidates for processors and underwriters</p>
-          </div>
-        </div>
-
-        <div class="summary-grid">
-          <div class="summary-section byte">
-            <h3>Byte LOS - 10 Agents</h3>
-            <div class="summary-item">
-              <div class="summary-score critical">96</div>
-              <span class="summary-name">Doc Verification & Fraud Detection</span>
-              <span class="summary-time">12min/loan</span>
-            </div>
-            <div class="summary-item">
-              <div class="summary-score critical">95</div>
-              <span class="summary-name">UCD Auto-Validator</span>
-              <span class="summary-time">5min/loan</span>
-            </div>
-            <div class="summary-item">
-              <div class="summary-score critical">95</div>
-              <span class="summary-name">Disclosure Checklist Validator</span>
-              <span class="summary-time">5min/loan</span>
-            </div>
-            <div class="summary-item">
-              <div class="summary-score critical">92</div>
-              <span class="summary-name">Condition Auto-Generator</span>
-              <span class="summary-time">15min/loan</span>
-            </div>
-            <div class="summary-item">
-              <div class="summary-score critical">92</div>
-              <span class="summary-name">VVOE Auto-Verify Agent</span>
-              <span class="summary-time">5min/borr</span>
-            </div>
-            <div class="summary-item">
-              <div class="summary-score high">88</div>
-              <span class="summary-name">Submission Notes Generator</span>
-              <span class="summary-time">8min/loan</span>
-            </div>
-            <div class="summary-item">
-              <div class="summary-score high">88</div>
-              <span class="summary-name">BOB Document Bundle Agent</span>
-              <span class="summary-time">12min/bundle</span>
-            </div>
-            <div class="summary-item">
-              <div class="summary-score high">82</div>
-              <span class="summary-name">Condition Flag Router</span>
-              <span class="summary-time">2min/cond</span>
-            </div>
-            <div class="summary-item">
-              <div class="summary-score high">81</div>
-              <span class="summary-name">Phone Lookup Agent</span>
-              <span class="summary-time">2min/emp</span>
-            </div>
-            <div class="summary-item">
-              <div class="summary-score high">78</div>
-              <span class="summary-name">PMI/MIP Auto-Calculator</span>
-              <span class="summary-time">3min/loan</span>
-            </div>
           </div>
 
-          <div class="summary-section clear">
-            <h3>Clear 2.0 - 5 Agents</h3>
-            <div class="summary-item">
-              <div class="summary-score critical">93</div>
-              <span class="summary-name">Condo Questionnaire Analyzer</span>
-              <span class="summary-time">60% faster</span>
+          <div class="visio-flowchart">
+            <div class="visio-flowchart-header">
+              <span class="visio-flowchart-title">Agent Workflow</span>
+              <div class="visio-legend">
+                <div class="visio-legend-item"><div class="visio-legend-dot extract"></div>Data Extract</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot validate"></div>Validation</div>
+                <div class="visio-legend-item"><div class="visio-legend-dot output"></div>Action</div>
+              </div>
             </div>
-            <div class="summary-item">
-              <div class="summary-score critical">90</div>
-              <span class="summary-name">AUS Pre-Check Agent</span>
-              <span class="summary-time">15min/loan</span>
-            </div>
-            <div class="summary-item">
-              <div class="summary-score high">85</div>
-              <span class="summary-name">CPM/PERS Lookup Agent</span>
-              <span class="summary-time">45% faster</span>
-            </div>
-            <div class="summary-item">
-              <div class="summary-score high">82</div>
-              <span class="summary-name">Findings Analyzer Agent</span>
-              <span class="summary-time">10min/loan</span>
-            </div>
-            <div class="summary-item">
-              <div class="summary-score high">79</div>
-              <span class="summary-name">HOA Insurance Validator</span>
-              <span class="summary-time">35% faster</span>
-            </div>
-
-            <div class="total-impact">
-              <h3>Total Impact</h3>
-              <div class="impact-grid">
-                <div class="impact-stat">
-                  <div class="value">45%</div>
-                  <div class="label">Avg Time Savings</div>
+            <div class="visio-flow-grid">
+              <div class="visio-box extract">
+                <div class="visio-box-header">
+                  <span class="visio-box-number extract">1</span>
+                  <span class="visio-box-type extract">Data Extract</span>
                 </div>
-                <div class="impact-stat">
-                  <div class="value">92%</div>
-                  <div class="label">Avg Accuracy</div>
+                <h4>Parse Insurance Certificate</h4>
+                <p>OCR the HOA master policy. Extract carrier, policy #, dates, coverage lines.</p>
+              </div>
+              <div class="visio-box validate">
+                <div class="visio-box-header">
+                  <span class="visio-box-number validate">2</span>
+                  <span class="visio-box-type validate">Validation</span>
                 </div>
+                <h4>Check Coverage Types</h4>
+                <p>Verify: Property/Hazard, Liability (≥$1M), Fidelity Bond (≥3mo assessments).</p>
+              </div>
+              <div class="visio-box validate">
+                <div class="visio-box-header">
+                  <span class="visio-box-number validate">3</span>
+                  <span class="visio-box-type validate">Validation</span>
+                </div>
+                <h4>Validate Limits & Dates</h4>
+                <p>Confirm not expired, deductibles ≤5%, replacement cost adequate.</p>
+              </div>
+              <div class="visio-box output">
+                <div class="visio-box-header">
+                  <span class="visio-box-number output">4</span>
+                  <span class="visio-box-type output">Action</span>
+                </div>
+                <h4>Generate Compliance Report</h4>
+                <p>Output pass/fail for each requirement. List deficiencies with corrections.</p>
+              </div>
+            </div>
+            <div class="visio-metrics-row">
+              <div class="visio-metric">
+                <div class="value">35%</div>
+                <div class="label">Time Savings</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">79</div>
+                <div class="label">Priority Score</div>
+              </div>
+              <div class="visio-metric">
+                <div class="value">Med</div>
+                <div class="label">Complexity</div>
               </div>
             </div>
           </div>
@@ -3015,7 +2920,6 @@
         <div class="nav-dot clear" data-slide="14"></div>
         <div class="nav-dot clear" data-slide="15"></div>
         <div class="nav-dot clear" data-slide="16"></div>
-        <div class="nav-dot summary" data-slide="17"></div>
       </div>
     </div>
     <div class="nav-buttons">
